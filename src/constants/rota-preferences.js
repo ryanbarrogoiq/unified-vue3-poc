@@ -1,0 +1,11 @@
+export const ROTA_PREFERENCE_EMAIL = 1;
+export const ROTA_PREFERENCE_POST = 2;
+export const ROTA_PREFERENCE_SMS = 3;
+export const ROTA_PREFERENCE_DONT_SEND = 3;
+
+export const NAMED_ROTA_PREFERENCES = {
+    [ROTA_PREFERENCE_EMAIL]: `Email`,
+    [ROTA_PREFERENCE_POST]: `Post`,
+    [ROTA_PREFERENCE_SMS]: `SMS`,
+    [ROTA_PREFERENCE_DONT_SEND]: `Don't Send`,
+};
