@@ -21,7 +21,7 @@ export default {
             this.$cookies.remove('token')
 
             setTimeout(function () {
-                localStorage.removeItem('userdata')
+                localStorage.removeItem('user_data')
                 localStorage.removeItem('permissions')
                 location.reload()
             }, 1000);
