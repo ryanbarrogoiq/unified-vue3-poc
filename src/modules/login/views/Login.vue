@@ -13,10 +13,10 @@
                                 <v-col>
                                     <form>
                                         <v-col>
-                                            <input v-model="email" type="text" placeholder="Email">
+                                            <v-text-field v-model="email" type="text" placeholder="Email" />
                                         </v-col>
                                         <v-col>
-                                            <input v-model="password" type="password" placeholder="Password">
+                                            <v-text-field v-model="password" type="password" placeholder="Password" />
                                         </v-col>
                                         <v-col>
                                             <v-btn class="main-btn" @click="getAuth">Login</v-btn>
@@ -35,8 +35,8 @@
 </template>
 
 <script>
-import * as Api from "../../api";
-import {LS_KEY_USER_DATA} from "../../constants";
+import * as Api from "@/api";
+import {LS_KEY_USER_DATA} from "@/constants";
 
 export default {
     name: 'LoginView',

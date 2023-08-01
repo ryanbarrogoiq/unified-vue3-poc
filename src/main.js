@@ -1,25 +1,32 @@
 import {createApp} from 'vue'
+import { createPinia } from 'pinia';
 import App from './App.vue'
 import router from './router'
 import vuetify from './plugins/vuetify'
 import axiosInstance from './http/axiosInstance'
 import VueCookies from 'vue3-cookies'
 import {config as VueCookiesConfig} from "./plugins/vuecookies";
+import routerDirective from './plugins/routerDirective';
 
 import {loadFonts} from './plugins/webfontloader'
 import {library} from '@fortawesome/fontawesome-svg-core'
 import {FontAwesomeIcon} from '@fortawesome/vue-fontawesome'
 import FontAwesomeIcons from "./plugins/fontAwesomeIcons";
+import './assets/app.scss'
+
+const app = createApp(App);
+const pinia = createPinia();
 
 /* add icons to the library */
-library.add(FontAwesomeIcons)
+library.add(FontAwesomeIcons);
 
-await loadFonts()
-window.axios = axiosInstance
+await loadFonts();
+window.axios = axiosInstance;
 
-createApp(App)
-.use(router)
-.use(vuetify)
-.use(VueCookies, VueCookiesConfig)
-.component('font-awesome-icon', FontAwesomeIcon)
-.mount('#app')
+app.use(pinia);
+app.use(router);
+app.use(vuetify);
+app.use(VueCookies, VueCookiesConfig);
+app.component('font-awesome-icon', FontAwesomeIcon);
+app.directive('route-to', routerDirective);
+app.mount('#app');

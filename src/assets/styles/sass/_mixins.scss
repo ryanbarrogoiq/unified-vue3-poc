@@ -1,3 +1,5 @@
+@import "variables";
+
 @mixin gradientTeal {
   background-image: -webkit-linear-gradient(92deg, #46f8e3, #27746b);
   -webkit-background-clip: text;

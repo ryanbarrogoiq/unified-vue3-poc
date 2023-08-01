@@ -1,24 +1,23 @@
 <template>
     <v-app>
-        <app-bar v-if="$route.name !== 'login'"></app-bar>
-        <v-main>
-            <router-view/>
-        </v-main>
+        <v-layout>
+            <side-menu v-if="isLoggedIn"></side-menu>
+
+            <v-main>
+                <app-bar v-if="isLoggedIn"></app-bar>
+                <router-view/>
+            </v-main>
+
+        </v-layout>
     </v-app>
 </template>
 
-<script>
+<script setup>
 import AppBar from "./components/_generic/AppBar.vue";
+import SideMenu from "./components/_generic/SideMenu.vue";
 
-export default {
-    name: 'App',
-    components: {AppBar},
-    data: () => ({
-        //
-    }),
-}
+const isLoggedIn = window.axios.defaults.headers.Authorization.indexOf('null') < 0;
 </script>
 
 <style lang="scss">
-@import "@/assets/styles/sass/style.scss"
 </style>
