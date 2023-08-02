@@ -7,7 +7,6 @@ import axiosInstance from './http/axiosInstance'
 import VueCookies from 'vue3-cookies'
 import {config as VueCookiesConfig} from "./plugins/vuecookies";
 import routerDirective from './plugins/routerDirective';
-
 import {loadFonts} from './plugins/webfontloader'
 import {library} from '@fortawesome/fontawesome-svg-core'
 import {FontAwesomeIcon} from '@fortawesome/vue-fontawesome'
@@ -16,12 +15,11 @@ import './assets/app.scss'
 
 const app = createApp(App);
 const pinia = createPinia();
+window.axios = axiosInstance;
 
 /* add icons to the library */
 library.add(FontAwesomeIcons);
-
 await loadFonts();
-window.axios = axiosInstance;
 
 app.use(pinia);
 app.use(router);

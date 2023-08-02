@@ -19,7 +19,7 @@
 </template>
 
 <script>
-import {useSideMenuStore} from "@/stores/side-menu";
+import {useSideMenuStore} from "@/stores";
 import {toRefs} from 'vue';
 
 export default {
@@ -29,7 +29,7 @@ export default {
 
         return {
             drawer,
-            toggleDrawer,
+            toggleDrawer
         };
     },
     name: "AppBar",

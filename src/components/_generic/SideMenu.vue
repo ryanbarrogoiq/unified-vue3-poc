@@ -1,5 +1,5 @@
 <template>
-    <v-navigation-drawer v-model="drawer" permanent>
+    <v-navigation-drawer v-model="drawer" permanent width="215">
         <v-list-item prepend-avatar="https://randomuser.me/api/portraits/men/86.jpg" title="Ryan Barrogo" nav>
             <template v-slot:append>
                 <v-btn variant="text" icon="mdi-chevron-left" @click.stop="toggleDrawer"></v-btn>
@@ -66,7 +66,7 @@
 
 <script>
 import {FormsDashboard, MainMenu, MainMenuTabMainGroupMain} from "@/constants";
-import {useSideMenuStore} from "@/stores/side-menu";
+import {useSideMenuStore} from "@/stores";
 import {toRefs} from 'vue';
 
 export default {
@@ -76,10 +76,10 @@ export default {
 
         return {
             drawer,
-            toggleDrawer,
+            toggleDrawer
         };
     },
-    name: "AppBar",
+    name: "SideMenu",
     props: {
         supportSession: {
             type: Boolean,

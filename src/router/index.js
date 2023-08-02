@@ -44,7 +44,7 @@ router.beforeEach((to, from, next) => {
         return;
     }
     
-    //Restrict access to non existing routes if not logged in
+    //Restrict access to non-existing routes if not logged in
     if (to.name === 'not-found' && !isLoggedIn) {
         router.push({ name: 'login' });
         return;
