@@ -1,5 +1,9 @@
 <template>
-    <v-navigation-drawer v-model="drawer" permanent width="215">
+    <v-navigation-drawer
+        v-model="drawer"
+        permanent
+        width="215"
+    >
         <v-list>
             <v-list-item
                 prepend-avatar="https://randomuser.me/api/portraits/men/86.jpg"

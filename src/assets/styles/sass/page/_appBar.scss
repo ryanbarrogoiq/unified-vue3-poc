@@ -8,4 +8,11 @@
         font-weight: bold;
         height: 100%;
     }
+
+    .side-bar-drawer {
+        position: absolute;
+        left: 0;
+        padding-left: 0;
+        color: $IQ_WHITE;
+    }
 }

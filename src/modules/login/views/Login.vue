@@ -2,7 +2,11 @@
     <section id="login">
         <v-container fluid>
             <v-row no-gutters>
-                <v-col cols="4" class="left-panel">
+                <v-col
+                    sm="12"
+                    md="4"
+                    class="left-panel"
+                >
                     <v-container>
                         <v-row class="text-center" justify="center" align="center">
                             <v-col cols="12">
@@ -11,7 +15,7 @@
                                     <p>Welcome to IQ:caremanager</p>
                                 </v-col>
                                 <v-col>
-                                    <form>
+                                    <v-col sm="6" md="12" class="d-sm-inline-block">
                                         <v-col>
                                             <v-text-field v-model="email" type="text" placeholder="Email" />
                                         </v-col>
@@ -21,13 +25,17 @@
                                         <v-col>
                                             <v-btn class="main-btn" @click="getAuth">Login</v-btn>
                                         </v-col>
-                                    </form>
+                                    </v-col>
                                 </v-col>
                             </v-col>
                         </v-row>
                     </v-container>
                 </v-col>
-                <v-col cols="8" class="right-panel">
+                <v-col
+                    sm="12"
+                    md="8"
+                    class="d-none d-md-block right-panel"
+                >
                 </v-col>
             </v-row>
         </v-container>

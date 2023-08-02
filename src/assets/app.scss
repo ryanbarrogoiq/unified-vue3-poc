@@ -21,6 +21,11 @@ html {
         text-align: left;
         background-color: #F9FBFD;
 
+        main {
+            &.logged-in {
+                --v-layout-top: 72px !important;
+            }
+        }
 
         header {
             &.v-toolbar {

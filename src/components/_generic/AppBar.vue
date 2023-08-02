@@ -1,10 +1,16 @@
 <template>
-    <v-app-bar flat>
-        <v-icon class="mr-5 position-absolute" v-if="!drawer">
-            <v-btn variant="text" icon="mdi-chevron-left" @click.stop="toggleDrawer"></v-btn>
-        </v-icon>
+    <v-app-bar>
+        <template v-slot:append v-if="!drawer">
+            <v-btn variant="text" class="side-bar-drawer" icon="mdi-chevron-right" @click.stop="toggleDrawer"></v-btn>
+        </template>
 
-        <v-spacer class="pl-6 pt-1 app-bar-title">
+        <v-spacer
+            class="pt-1 app-bar-title"
+            :class="[
+                {'pl-12': !drawer},
+                {'pl-6': drawer}
+            ]"
+        >
             Dashboard
         </v-spacer>
 

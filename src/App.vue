@@ -1,9 +1,9 @@
 <template>
     <v-app>
         <side-menu v-if="isLoggedIn"></side-menu>
+        <app-bar v-if="isLoggedIn"></app-bar>
 
-        <v-main>
-            <app-bar v-if="isLoggedIn"></app-bar>
+        <v-main :class="[{'logged-in': isLoggedIn}]">
             <router-view/>
         </v-main>
     </v-app>
