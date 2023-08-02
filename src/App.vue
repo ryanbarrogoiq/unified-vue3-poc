@@ -1,14 +1,11 @@
 <template>
     <v-app>
-        <v-layout>
-            <side-menu v-if="isLoggedIn"></side-menu>
+        <side-menu v-if="isLoggedIn"></side-menu>
 
-            <v-main>
-                <app-bar v-if="isLoggedIn"></app-bar>
-                <router-view/>
-            </v-main>
-
-        </v-layout>
+        <v-main>
+            <app-bar v-if="isLoggedIn"></app-bar>
+            <router-view/>
+        </v-main>
     </v-app>
 </template>
 

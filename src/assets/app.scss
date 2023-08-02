@@ -1,6 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;700&display=swap');
 @import './styles/sass/variables';
-@import './styles/sass/mixins';
 @import './styles/sass/theme';
+@import './styles/sass/mixins';
 @import './styles/sass/mediaQueries';
 @import './styles/sass/page/appBar';
 @import './styles/sass/page/login';
@@ -23,7 +24,11 @@ html {
 
         header {
             &.v-toolbar {
-                height: 57px !important;
+                height: 72px !important;
+
+                .v-toolbar__content {
+                    height: 100% !important;
+                }
             }
         }
     }

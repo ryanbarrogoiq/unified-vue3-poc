@@ -1,18 +1,59 @@
-$BASE_COLOR: #fff;
-$ERROR: #e9665c;
-$SUCCESS: #7e9f5a;
-$WARNING: #e0792e;
-$BASE_BACKGROUND: #151515;
-$SECOND_BACKGROUND: #7e9f5a;
-$NAV_BACKGROUND: #353942;
-$TABLE_BACKGROUND: #0e0e0e;
+// Colors
+$blue: #3490dc;
+$indigo: #6574cd;
+$purple: #AC4AF9;
+$pink: #f66d9b;
+$red: #DD3333;
+$bright-red: #DD3333;
+$orange: #f6993f;
+$yellow: #ffed4a;
+$green: #579d3f;
+$teal: #4dc0b5;
+$cyan: #6cb2eb;
+$black: #000000;
+$white: #ffffff;
+$off-white: #F9FBFD;
+$dark-grey: #3C3C3B;
+$mid-light-grey: #6c757d;
+$light-grey: #ddd;
+$lighter-grey: #eee;
+$blue-gray: #EDF2F9;
+$eerie-black: #1a1a1a;
+$astral: #2276aa;
+$silver: #ccc;
+$royal-blue-color: #2276aa;
+$lightgreen: #76ff7b;
+$lightblue: #add8e6;
+$caper: #deeeac;
+$alto: #e0e0e0;
+$link-water: #E3EBF6;
+$pigeon-post: #B1C2D9;
 
-$MAIN_FONT: 'Roboto Condensed', sans-serif;
-$BOLD_FONT: 'Impact';
-$TITLE: #fff;
-$LIGHT_FONT: #fff;
-$DARK_FONT: #000;
-$SUB_TITLE: #8dbcb4;
-$HIGHLIGHT_TEXT: #7e9f5a;
+// Branding
+$IQ_WHITE: #ffffff;
+$IQ_OFF_WHITE: #F8F8F8;
+$IQ_BLUE: #2276aa;
+$IQ_GREY: #3C3C3B;
+$IQ_RED: #DD3333;
+$IQ_ORANGE: #F7931D;
+$IQ-GREEN: #579d3f;
 
-$BASE_PADDING: 20px;
+// Typography
+$font-family-sans-serif: 'Poppins', sans-serif;
+$font-size-base: 0.9rem;
+$line-height-base: 1.6;
+$font-weight-bold: 700;
+$font-weight-light: 300;
+$font-weight-normal: 400;
+
+
+// Theme
+$theme_blue: #12263F;
+$theme_blue_not_active: #95AAC9;
+$theme_accessible_light_blue: #7BB8EA;
+$theme_accessible_red: #DD3333;
+
+// Gradient
+$IQ_BLUE_GRAD: linear-gradient(237.18deg, #1caac9 60%, #2276aa);
+$IQ_ORANGE_GRAD: linear-gradient(231.17deg, #F7931D 0%, #F76B1D 100%);
+$IQ_SKELETON_GRAD: linear-gradient(90deg, #e9edf1 7%, #eff2f4 12%, #e9edf1 37%);

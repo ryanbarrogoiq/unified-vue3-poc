@@ -8,9 +8,10 @@ import VueCookies from 'vue3-cookies'
 import {config as VueCookiesConfig} from "./plugins/vuecookies";
 import routerDirective from './plugins/routerDirective';
 import {loadFonts} from './plugins/webfontloader'
-import {library} from '@fortawesome/fontawesome-svg-core'
-import {FontAwesomeIcon} from '@fortawesome/vue-fontawesome'
-import FontAwesomeIcons from "./plugins/fontAwesomeIcons";
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { fas } from '@fortawesome/free-solid-svg-icons'
+import { far } from '@fortawesome/free-regular-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import './assets/app.scss'
 
 const app = createApp(App);
@@ -18,13 +19,17 @@ const pinia = createPinia();
 window.axios = axiosInstance;
 
 /* add icons to the library */
-library.add(FontAwesomeIcons);
+library.add(fas);
+library.add(far);
+
+// Register the FontAwesomeIcon component globally
+app.component('font-awesome-icon', FontAwesomeIcon)
+
 await loadFonts();
 
 app.use(pinia);
 app.use(router);
 app.use(vuetify);
 app.use(VueCookies, VueCookiesConfig);
-app.component('font-awesome-icon', FontAwesomeIcon);
 app.directive('route-to', routerDirective);
 app.mount('#app');

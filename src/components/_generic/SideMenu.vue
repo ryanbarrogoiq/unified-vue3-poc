@@ -1,66 +1,49 @@
 <template>
     <v-navigation-drawer v-model="drawer" permanent width="215">
-        <v-list-item prepend-avatar="https://randomuser.me/api/portraits/men/86.jpg" title="Ryan Barrogo" nav>
-            <template v-slot:append>
-                <v-btn variant="text" icon="mdi-chevron-left" @click.stop="toggleDrawer"></v-btn>
-            </template>
-        </v-list-item>
+        <v-list>
+            <v-list-item
+                prepend-avatar="https://randomuser.me/api/portraits/men/86.jpg"
+                title="Ryan Barrogo"
+                nav
+            >
+                <template v-slot:append>
+                    <v-btn variant="text" icon="mdi-chevron-left" @click.stop="toggleDrawer"></v-btn>
+                </template>
+            </v-list-item>
+        </v-list>
 
         <v-divider></v-divider>
 
-        <v-list density="compact" nav>
-            <v-list-item prepend-icon="mdi-home-city" title="Home" value="home"></v-list-item>
-            <v-list-item prepend-icon="mdi-account" title="My Account" value="account"></v-list-item>
-            <v-list-item prepend-icon="mdi-account-group-outline" title="Users" value="users"></v-list-item>
-        </v-list>
-
-        <!-- <div
-            v-for="menuItem in menuItems"
-            :key="menuItem.id"
-            class="mb-2"
-        >
-            <div class="p-0" role="tab">
-                <a
-                    v-b-toggle="[menuItem.groupId]"
+        <v-list id="SideMenu" density="compact">
+            <div
+                v-for="menuItem in menuItems"
+                :key="menuItem.id"
+                class="list-item-container mb-2"
+            >
+                <v-list-item
                     class="side-menu-item-btn btn btn-block"
                     :id="menuItem.id"
-                    @click="menuItem.clickFn ? menuItem.clickFn() : null"
                 >
-                    <div class="menu-item-icon">
-                        <i class="far adjust" :class="[menuItem.icon.faIcon, menuItem.icon.classList]"></i>
+                    <div class="menu-item-icon" :class="menuItem.icon.classList">
+                        <font-awesome-icon :icon="menuItem.icon.faIcon"/>
                     </div>
                     <div class="menu-item-text">
                         {{ menuItem.text }}
                     </div>
-                </a>
+                </v-list-item>
             </div>
+        </v-list>
 
-            <b-collapse
-                v-if="menuItem.subMenu.length"
-                :id="menuItem.groupId"
-                :visible="isParentActive(menuItem)"
-                accordion="my-accordion"
-                role="tabpanel"
-                class="sub-menu-items"
-            >
-                <ul class="nav nav-sm flex-column">
-                    <li
-                        v-for="(subItem, smKey) in menuItem.subMenu"
-                        :key="smKey"
-                        class="nav-item"
-                        :class="subItem.classList"
-                    >
-                        <a :id="subItem.id"
-                           :href="subItem.url"
-                           class="nav-link"
-                           :class="{'active': isSubItemActive(subItem.activators)}"
-                        >
-                            {{ subItem.text }}
-                        </a>
-                    </li>
-                </ul>
-            </b-collapse>
-        </div> -->
+        <v-col>
+            <v-switch
+                v-model="currentTheme"
+                hide-details
+                true-value="Dark"
+                false-value="Light"
+                @click="toggleTheme"
+                :label="`${currentTheme} Theme`"
+            ></v-switch>
+        </v-col>
     </v-navigation-drawer>
 </template>
 
@@ -68,15 +51,19 @@
 import {FormsDashboard, MainMenu, MainMenuTabMainGroupMain} from "@/constants";
 import {useSideMenuStore} from "@/stores";
 import {toRefs} from 'vue';
+import {useTheme} from 'vuetify'
 
 export default {
     setup() {
         const sideMenuStore = useSideMenuStore();
         const {drawer, toggleDrawer} = toRefs(sideMenuStore);
+        const theme = useTheme()
 
         return {
             drawer,
-            toggleDrawer
+            toggleDrawer,
+            theme,
+            toggleTheme: () => theme.global.name.value = theme.global.current.value.dark ? 'light' : 'dark'
         };
     },
     name: "SideMenu",
@@ -96,6 +83,7 @@ export default {
     },
     data() {
         return {
+            currentTheme: 'Light',
             sideMenuRendered: false,
             permissionCheckIntervalId: null,
             menuItems: [
@@ -355,7 +343,7 @@ export default {
                     classList: null,
                     permissions: [MainMenu.CAN_VIEW_RUNS_TAB],
                     icon: {
-                        faIcon: 'fa-car-building',
+                        faIcon: 'fa-car',
                         classList: '',
                     },
                     subMenu: [
@@ -406,7 +394,7 @@ export default {
                     classList: null,
                     permissions: [],
                     icon: {
-                        faIcon: 'fa-inbox-in',
+                        faIcon: 'fa-phone',
                         classList: '',
                     },
                     subMenu: [
@@ -558,7 +546,7 @@ export default {
                     menuConfiguration: 'timesheetMgmt._self.enabled.side',
                     permissions: [MainMenu.TIMESHEET_MANAGEMENT],
                     icon: {
-                        faIcon: 'fa-receipt',
+                        faIcon: 'fa-clock',
                         classList: 'timesheet-management-icon-custom-style',
                     },
                     subMenu: [
@@ -616,3 +604,90 @@ export default {
     }
 }
 </script>
+
+<style lang="scss">
+@import "/src/assets/styles/sass/variables";
+
+@mixin hover-effect {
+    &.active,
+    &:hover {
+        color: $IQ_WHITE !important;
+        border-radius: unset !important;
+        background: $IQ_BLUE_GRAD !important;
+    }
+}
+
+#SideMenu {
+    .side-menu-item-btn {
+        border: 0;
+        font-size: .85rem !important;
+        font-weight: 300;
+        padding: 10px 18px;
+        transition: none;
+        @include hover-effect;
+
+        &.not-collapsed {
+            background: $IQ_WHITE !important;
+            border-left: 5px solid $IQ_BLUE !important;
+            border-radius: unset !important;
+            padding: 10px 13px;
+            @include hover-effect;
+        }
+
+        &:focus {
+            outline: none;
+            box-shadow: none;
+        }
+
+        .menu-item-icon {
+            position: absolute;
+            margin-left: 6px;
+            margin-top: 3px;
+            justify-content: left;
+            display: flex;
+
+            svg {
+                color: $IQ_ORANGE;
+            }
+        }
+
+        .menu-item-text {
+            justify-content: left;
+            text-align: left;
+            display: flex;
+            margin-left: 30px;
+        }
+
+        img {
+            .iqtc-logo-dimensions {
+                height: 21px;
+                width: auto;
+            }
+
+            .navbar-brand-iqtc-img {
+                max-height: 2.1rem !important;
+            }
+        }
+    }
+
+    .sub-menu-items {
+        margin-left: 20px;
+
+        ul {
+            li {
+                a {
+                    border-left: 5px solid $IQ_BLUE;
+                    margin-left: 0;
+                    padding: 8px 19px;
+                    text-decoration: none;
+                    @include hover-effect;
+                }
+            }
+        }
+    }
+
+    .timesheet-management-icon-custom-style {
+        line-height: 30px;
+    }
+}
+</style>
