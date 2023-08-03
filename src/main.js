@@ -2,12 +2,13 @@ import {createApp} from 'vue'
 
 import {createPinia} from 'pinia';
 import {registerModules} from "@/register-modules";
+import {initRouteGuard} from "@/route-guard";
 
 import App from './App.vue'
 import router from './router'
 import vuetify from './plugins/vuetify'
-import axiosInstance from './http/axiosInstance'
-import routerDirective from './plugins/routerDirective';
+import axiosInstance from './http/axios-instance'
+import routerDirective from './plugins/router-directive';
 
 import VueCookies from 'vue3-cookies'
 import {config as VueCookiesConfig} from "./plugins/vuecookies";
@@ -30,6 +31,7 @@ library.add(far);
 
 // Register modules first before we use anything
 registerModules();
+initRouteGuard();
 
 app.use(pinia);
 app.use(router);

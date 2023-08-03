@@ -118,13 +118,15 @@ export default {
             this.confirmationBoxVisible = value;
         },
         async logout() {
+            console.log(this.$cookies.get('token'))
             this.$cookies.remove('token');
+            console.log(this.$cookies.get('token'))
 
             setTimeout(function () {
                 localStorage.removeItem('user_data');
                 localStorage.removeItem('permissions');
                 location.reload();
-            }, 1000);
+            }, 300);
         },
     }
 }

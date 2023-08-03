@@ -1,4 +1,4 @@
-import axiosInstance from "../../http/axiosInstance";
+import axiosInstance from "../../http/axios-instance";
 
 const LOGIN_API = `${import.meta.env.VITE_IQCM_LOGIN_BASE_API}/api/Login`;
 const MAIN_API = `${import.meta.env.VITE_IQCM_MAIN_BASE_API}`;

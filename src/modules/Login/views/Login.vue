@@ -89,7 +89,7 @@ export default {
             email: '',
             lang: 'en',
             password: '',
-            imgUrl: new URL('@/assets/img/auth/left-panel.png', import.meta.url).href, // TODO: Change implementation
+            imgUrl: new URL('@/assets/img/auth/logo-xl.png', import.meta.url).href, // TODO: Change implementation
         }
     },
 }
