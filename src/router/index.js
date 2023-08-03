@@ -12,23 +12,6 @@ const router = createRouter({
     ]
 })
 
-// Function to load all route modules from the "routes" folder dynamically
-async function loadRouteModules() {
-    const routeFiles = import.meta.glob('@/modules/*/router.js');
-
-    for (const path in routeFiles) {
-        const routeModule = await routeFiles[path]();
-        if (routeModule.default) {
-            // If the route module exports a "default" object, assume it's a valid route configuration.
-            const routeConfig = routeModule.default;
-            router.addRoute(routeConfig);
-        }
-    }
-}
-
-// Load and register all route modules
-await loadRouteModules();
-
 router.beforeEach((to, from, next) => {
     const isLoggedIn = window.axios.defaults.headers.Authorization.indexOf('null') < 0;
 

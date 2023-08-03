@@ -4,6 +4,7 @@ const Actions = () => import("./views/Actions.vue")
 
 const moduleRoute = {
     path: "/dashboard",
+    component: Module,
     children: [
         {
             path: '',

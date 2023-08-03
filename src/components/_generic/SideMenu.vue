@@ -77,7 +77,7 @@
 
 <script>
 import {FormsDashboard, MainMenu, MainMenuTabMainGroupMain} from "@/constants";
-import {useSideMenuStore} from "@/stores";
+import {useSideMenuStore} from "@/store/sideMenuStore";
 import {toRefs} from 'vue';
 import {useTheme} from 'vuetify'
 

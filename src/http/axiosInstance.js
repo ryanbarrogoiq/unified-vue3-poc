@@ -2,7 +2,7 @@ import Axios from 'axios'
 import * as StringUtils from '../utils/string/string-utils'
 import AlertNotification from "../utils/alerts/alert-notification"
 import {useCookies} from "vue3-cookies"
-import {ERRORS, LS_KEY_USER_DATA, LS_KEY_USER_PERMISSIONS} from "../constants"
+import {LS_KEY_USER_DATA, LS_KEY_USER_PERMISSIONS} from "../constants"
 
 const {cookies} = useCookies()
 const AUTH_TOKEN = cookies.get('token')
@@ -31,7 +31,7 @@ axiosInstance.interceptors.response.use(
         if (error.response && error.response.status === 403) {
             if (error.response?.data) {
                 AlertNotification.showError(StringUtils.replaceWithParams(
-                    ERRORS.PERMISSION.NOT_ENOUGH_PERMISSION_UNHANDLED,
+                    'TEST ERROR, ADD THIS TO CONSTANTS',
                     {
                         permission: error.response.data.PermissionString,
                         errorMessage: error.response.data.Error,

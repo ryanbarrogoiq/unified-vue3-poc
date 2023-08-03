@@ -31,8 +31,8 @@ export const Visit = {
  * @type {{CAN_ADD_NEW_CONTACT_LOG: string}}
  */
 export const MainMenuTabMainGroupMain = {
-    'CAN_ADD_NEW_CONTACT_LOG' : 'MainMenu-TabMain-GroupMain-ButtonContactLog',
-    'CAN_SEARCH_CONTACT_LOG' : 'MainMenu-TabMain-GroupMain-ButtonContactLogSearch',
+    'CAN_ADD_NEW_CONTACT_LOG': 'MainMenu-TabMain-GroupMain-ButtonContactLog',
+    'CAN_SEARCH_CONTACT_LOG': 'MainMenu-TabMain-GroupMain-ButtonContactLogSearch',
 }
 
 /**
@@ -40,8 +40,8 @@ export const MainMenuTabMainGroupMain = {
  * @type {{CONTACT_LOG_DELETE: string}}
  */
 export const FormsDashboard = {
-    'CONTACT_LOG_DELETE' : 'Forms-Dashboard-Contactlog-Delete',
-    'DASHBOARD_ENABLED' : 'Forms-Dashboard-Enabled',
+    'CONTACT_LOG_DELETE': 'Forms-Dashboard-Contactlog-Delete',
+    'DASHBOARD_ENABLED': 'Forms-Dashboard-Enabled',
 }
 
 /**
@@ -49,7 +49,7 @@ export const FormsDashboard = {
  * @type {{CONTACT_CAN_VIEW_AUDIT_TAB: string}}
  */
 export const FormsContactLog = {
-    'CONTACT_CAN_VIEW_AUDIT_TAB' : 'Forms-ContactLog-CanViewAuditTab',
+    'CONTACT_CAN_VIEW_AUDIT_TAB': 'Forms-ContactLog-CanViewAuditTab',
 }
 
 /**
@@ -57,8 +57,8 @@ export const FormsContactLog = {
  * @type {{CAN_SEARCH_ALL_LOCATION_SERVICES: string, SEE_ALL_SERVICE_USERS: string}}
  */
 export const FormsSearchServiceUser = {
-    'CAN_SEARCH_ALL_LOCATION_SERVICES' : 'Forms-SearchServiceUser-CanSearchAllLocationServices',
-    'SEE_ALL_SERVICE_USERS' : 'Forms-SearchServiceUser-SeeAllServiceUsers',
+    'CAN_SEARCH_ALL_LOCATION_SERVICES': 'Forms-SearchServiceUser-CanSearchAllLocationServices',
+    'SEE_ALL_SERVICE_USERS': 'Forms-SearchServiceUser-SeeAllServiceUsers',
 };
 
 /**
@@ -66,7 +66,7 @@ export const FormsSearchServiceUser = {
  * @type {{CAN_USE_REPORTING_TOOLS: string}}
  */
 export const BoldReports = {
-    'CAN_USE_REPORTING_TOOLS' : 'BoldReports-CanUseReportingTools',
+    'CAN_USE_REPORTING_TOOLS': 'BoldReports-CanUseReportingTools',
 };
 
 /**
