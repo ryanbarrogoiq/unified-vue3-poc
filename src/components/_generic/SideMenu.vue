@@ -1,5 +1,6 @@
 <template>
     <v-navigation-drawer
+        id="navigation-drawer"
         v-model="drawer"
         permanent
         width="215"
@@ -22,11 +23,13 @@
             <div
                 v-for="menuItem in menuItems"
                 :key="menuItem.id"
-                class="list-item-container mb-2"
+                class="list-item-container mb-1"
             >
                 <v-list-item
                     class="side-menu-item-btn btn btn-block"
+                    :class="[{'not-collapsed': menuItem.id === expandedItem}]"
                     :id="menuItem.id"
+                    @click="toggleCollapse(menuItem.id)"
                 >
                     <div class="menu-item-icon" :class="menuItem.icon.classList">
                         <font-awesome-icon :icon="menuItem.icon.faIcon"/>
@@ -35,6 +38,27 @@
                         {{ menuItem.text }}
                     </div>
                 </v-list-item>
+
+                <v-expand-transition>
+                    <div
+                        v-show="isExpanded(menuItem.id)"
+                        class="sub-menu-items"
+                    >
+                        <v-list class="nav nav-sm flex-column">
+                            <v-list-item
+                                v-for="(subItem, smKey) in menuItem.subMenu"
+                                :key="smKey"
+                                :class="[
+                                    subItem.classList,
+                                    {'active': isSubItemActive(subItem.activators)}
+                                ]"
+                                @click.stop="$router.push(subItem.url)"
+                            >
+                                {{ subItem.text }}
+                            </v-list-item>
+                        </v-list>
+                    </div>
+                </v-expand-transition>
             </div>
         </v-list>
 
@@ -90,6 +114,7 @@ export default {
             currentTheme: 'Light',
             sideMenuRendered: false,
             permissionCheckIntervalId: null,
+            expandedItem: null,
             menuItems: [
                 {
                     id: 'home-nav',
@@ -105,11 +130,11 @@ export default {
                         {
                             text: 'Home Page',
                             id: 'home-page-nav',
-                            url: '/',
+                            url: '/dashboard',
                             classList: null,
                             excludedFormFieldName: null,
                             activators: {
-                                url: ['/'],
+                                url: ['/dashboard'],
                                 regex: [],
                             },
                             permissions: [],
@@ -117,11 +142,11 @@ export default {
                         {
                             text: 'Actions',
                             id: 'home-actions-nav',
-                            url: '/actions/dashboard',
+                            url: '/dashboard/actions',
                             classList: null,
                             excludedFormFieldName: null,
                             activators: {
-                                url: ['/actions/dashboard'],
+                                url: ['/dashboard/actions'],
                                 regex: [],
                             },
                             permissions: [FormsDashboard.DASHBOARD_ENABLED],
@@ -605,6 +630,19 @@ export default {
 
             return false;
         },
+        toggleCollapse(itemId) {
+            if (this.expandedItem === itemId) {
+                this.expandedItem = null;
+                return;
+            }
+
+            this.expandedItem = itemId;
+        },
+        isExpanded(itemId) {
+            return this.expandedItem === itemId;
+        },
+    },
+    mounted() {
     }
 }
 </script>
@@ -621,6 +659,12 @@ export default {
     }
 }
 
+#navigation-drawer {
+    .v-navigation-drawer__content::-webkit-scrollbar {
+        display: none;
+    }
+}
+
 #SideMenu {
     .side-menu-item-btn {
         border: 0;
@@ -631,7 +675,6 @@ export default {
         @include hover-effect;
 
         &.not-collapsed {
-            background: $IQ_WHITE !important;
             border-left: 5px solid $IQ_BLUE !important;
             border-radius: unset !important;
             padding: 10px 13px;
@@ -677,14 +720,19 @@ export default {
     .sub-menu-items {
         margin-left: 20px;
 
-        ul {
-            li {
+        .v-list {
+            padding: 0 !important;
+
+            .v-list-item {
+                border-left: 5px solid $IQ_BLUE;
+                cursor: pointer;
+                padding: 0 19px;
+                min-height: 40px;
+                @include hover-effect;
+
                 a {
-                    border-left: 5px solid $IQ_BLUE;
-                    margin-left: 0;
-                    padding: 8px 19px;
                     text-decoration: none;
-                    @include hover-effect;
+                    color: var(--v-theme-primary);
                 }
             }
         }

@@ -1,0 +1,17 @@
+.v-btn {
+    //border-radius: 40px;
+
+    &.btn-primary {
+        color: $IQ_WHITE;
+        background: $IQ_BLUE_GRAD;
+    }
+
+    &.btn-secondary {
+        color: $IQ_WHITE;
+        background: $IQ_GREY;
+    }
+
+    &.btn-tertiary {
+        border: 1px solid $IQ_BLUE;
+    }
+}

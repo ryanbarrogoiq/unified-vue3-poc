@@ -57,3 +57,6 @@ $theme_accessible_red: #DD3333;
 $IQ_BLUE_GRAD: linear-gradient(237.18deg, #1caac9 60%, #2276aa);
 $IQ_ORANGE_GRAD: linear-gradient(231.17deg, #F7931D 0%, #F76B1D 100%);
 $IQ_SKELETON_GRAD: linear-gradient(90deg, #e9edf1 7%, #eff2f4 12%, #e9edf1 37%);
+
+// Transition
+$IQ_TRANSITION: cubic-bezier(.4,0,.2,1);

@@ -1,6 +1,9 @@
 .v-app-bar {
     .app-bar-title {
         background: linear-gradient(237.18deg, #1CAAC9 0%, #2276AA 100%);
+        transition-duration: .5s;
+        transition-delay: .2s;
+        transition-timing-function: $IQ_TRANSITION;
         border-radius: 0 0 110px 0;
         color: $IQ_WHITE;
         font-size: 40px;

@@ -54,17 +54,43 @@
             </v-list>
         </v-menu>
 
-        <v-icon @click="logout" class="mr-5">
+        <v-icon @click="confirmationBoxVisible=true" class="mr-5">
             <font-awesome-icon icon="fas fa-sign-out-alt"/>
         </v-icon>
+
+        <confirm-box
+            :show="confirmationBoxVisible"
+            @update:show="updateConfirmationBox"
+        >
+            <template #header>
+                Logout
+            </template>
+            <template #body>
+                Are you sure you want to logout?
+            </template>
+            <template #buttons>
+                <ButtonComponent
+                    v-if="true"
+                    class-list=""
+                    class="btn-cancel"
+                    data-dismiss="modal"
+                    :func="logout"
+                    text="Yes, log me out"
+                    :disabled="false"
+                />
+            </template>
+        </confirm-box>
     </v-app-bar>
 </template>
 
 <script>
 import {useSideMenuStore} from "@/stores";
 import {toRefs} from 'vue';
+import ConfirmBox from "@/components/_generic/ConfirmBox.vue";
+import ButtonComponent from "@/components/_generic/ButtonComponent.vue";
 
 export default {
+    components: {ButtonComponent, ConfirmBox},
     setup() {
         const sideMenuStore = useSideMenuStore();
         const {drawer, toggleDrawer} = toRefs(sideMenuStore);
@@ -77,6 +103,7 @@ export default {
     name: "AppBar",
     data() {
         return {
+            confirmationBoxVisible: false,
             settings: {
                 items: [
                     {title: 'Click Me'},
@@ -87,6 +114,9 @@ export default {
         }
     },
     methods: {
+        updateConfirmationBox(value) {
+            this.confirmationBoxVisible = value;
+        },
         async logout() {
             this.$cookies.remove('token');
 

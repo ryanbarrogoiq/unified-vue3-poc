@@ -10,8 +10,8 @@
 </template>
 
 <script setup>
-import AppBar from "./components/_generic/AppBar.vue";
-import SideMenu from "./components/_generic/SideMenu.vue";
+import AppBar from "@/components/_generic/AppBar.vue";
+import SideMenu from "@/components/_generic/SideMenu.vue";
 
 const isLoggedIn = window.axios.defaults.headers.Authorization.indexOf('null') < 0;
 </script>

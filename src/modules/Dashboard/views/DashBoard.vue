@@ -1,10 +1,10 @@
 <template>
-  <HelloWorld />
+  <SampleComponent />
 </template>
 
 <script>
 import { defineComponent } from 'vue';
-import HelloWorld from '../components/HelloWorld.vue';
+import SampleComponent from '../components/SampleComponent.vue';
 
 // Components
 
@@ -12,7 +12,7 @@ export default defineComponent({
   name: 'DashBoard',
 
   components: {
-    HelloWorld,
+      SampleComponent,
   },
 });
 </script>

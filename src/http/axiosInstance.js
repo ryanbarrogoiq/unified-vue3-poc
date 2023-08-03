@@ -7,8 +7,6 @@ import {ERRORS, LS_KEY_USER_DATA, LS_KEY_USER_PERMISSIONS} from "../constants"
 const {cookies} = useCookies()
 const AUTH_TOKEN = cookies.get('token')
 
-console.log(AUTH_TOKEN)
-
 let axiosInstance = Axios.create({
     headers: {
         'Authorization': `Bearer ${AUTH_TOKEN}`,

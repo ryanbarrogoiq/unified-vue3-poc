@@ -3,8 +3,7 @@ const DashBoard = () => import("./views/DashBoard.vue")
 const Actions = () => import("./views/Actions.vue")
 
 const moduleRoute = {
-    path: "/",
-    component: Module,
+    path: "/dashboard",
     children: [
         {
             path: '',
@@ -15,8 +14,8 @@ const moduleRoute = {
             }
         },
         {
-            path: '/actions',
-            name: 'actions',
+            path: 'actions',
+            name: 'dashboard-actions',
             component: Actions,
             meta: {
                 requires_auth: true

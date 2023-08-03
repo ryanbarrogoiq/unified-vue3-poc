@@ -10,7 +10,7 @@
 
 <script>
 import { defineComponent } from 'vue';
-import HelloWorld from '../components/HelloWorld.vue';
+import HelloWorld from '../components/SampleComponent.vue';
 
 // Components
 
