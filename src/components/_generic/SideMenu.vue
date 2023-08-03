@@ -76,10 +76,10 @@
 </template>
 
 <script>
-import {FormsDashboard, MainMenu, MainMenuTabMainGroupMain} from "@/constants";
-import {useSideMenuStore} from "@/store/sideMenuStore";
 import {toRefs} from 'vue';
 import {useTheme} from 'vuetify'
+import {useSideMenuStore} from "@/store/sideMenuStore";
+import {FormsDashboard, MainMenu, MainMenuTabMainGroupMain} from "@/constants";
 
 export default {
     setup() {

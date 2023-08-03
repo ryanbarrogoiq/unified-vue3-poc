@@ -84,8 +84,8 @@
 </template>
 
 <script>
-import {useSideMenuStore} from "@/store/sideMenuStore";
 import {toRefs} from 'vue';
+import {useSideMenuStore} from "@/store/sideMenuStore";
 import ConfirmBox from "@/components/_generic/ConfirmBox.vue";
 import ButtonComponent from "@/components/_generic/ButtonComponent.vue";
 

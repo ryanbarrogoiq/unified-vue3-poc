@@ -1,4 +1,4 @@
-import { createRouter, createWebHistory } from 'vue-router'
+import {createRouter, createWebHistory} from 'vue-router'
 import NotFound from "@/views/NotFound.vue";
 
 const router = createRouter({
@@ -17,19 +17,19 @@ router.beforeEach((to, from, next) => {
 
     //Restrict access to protected routes if not logged in
     if (to.meta.requires_auth && !isLoggedIn) {
-        router.push({ name: 'login' });
+        router.push({name: 'login'});
         return;
     }
 
     //Restrict access to Login page if user is logged in
     if (to.meta.not_for_authenticated && isLoggedIn) {
-        router.push({ name: 'dashboard' });
+        router.push({name: 'dashboard'});
         return;
     }
-    
+
     //Restrict access to non-existing routes if not logged in
     if (to.name === 'not-found' && !isLoggedIn) {
-        router.push({ name: 'login' });
+        router.push({name: 'login'});
         return;
     }
 
